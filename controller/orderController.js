@@ -85,7 +85,6 @@ class OrderController {
 
     async create( req, res, next ) {
         try {
-            (req.body)
             const data = await Order.create(req.body);
             if(data) {
                 res.send({
@@ -100,7 +99,7 @@ class OrderController {
     }
     async getAll( req, res, next ) {
         try {
-            (req.query)
+            
             const OrderData = await Order.find(req?.query);
             res.send(OrderData)
          
@@ -109,7 +108,7 @@ class OrderController {
         }
     }
     async razorPay ( req,res,next) {
-        (req.body.amount)
+        
             return request(
              {
              method: "POST",
@@ -147,7 +146,7 @@ class OrderController {
           
     }
     async razor (req, res, next) {
-                ("try")
+             
               const options = {
                 amount: req.body.amount * 100, // amount == Rs 10
                 currency: "INR",
@@ -157,12 +156,12 @@ class OrderController {
               };
             instance.orders.create(options, async function (err, order) {
               if (err) {
-                (err)
+               
                 return res.status(500).json({
                   message: "Something Went Wrong",
                 });
               }
-              ("asaaasas",order)
+              
             return res.status(200).json(order);
            });
           

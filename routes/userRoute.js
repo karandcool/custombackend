@@ -4,7 +4,7 @@ const router = Router();
 const auth = require( '../auth' );
 // const model = require("./model")
 
-router.post('/signin',  userController.SignIn)
+router.post('/signin',auth,  userController.SignIn)
 router.post('/',  userController.create)
 // router.put('/', async (req,res) => {
 //     res.send("hello")

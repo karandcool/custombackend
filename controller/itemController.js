@@ -6,7 +6,7 @@ class ItemsController {
 
     async create( req, res, next ) {
         try {
-            (req.body)
+            
             req.body.picture = req.file.path
 
             const data = await Items.create(req.body);
@@ -50,7 +50,7 @@ class ItemsController {
     }
     async getItemById(req,res,next) {
         try {
-            (req)
+          
             const ItemsData = await Items.findById({'_id': req.query.id});
             res.send(ItemsData)
          

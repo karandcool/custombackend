@@ -15,7 +15,7 @@ class CategoryController {
     async create( req, res, next ) {
         // (req)
         try {
-            (req.body)
+           
             req.body.picture = req.file.path
             const checkCategory = await Category.findOne({'name': req.body.name})
             if (checkCategory) {
@@ -61,9 +61,9 @@ class CategoryController {
             )
             let newData = [] 
             await categoryData.map((cat) => {
-              (cat)
+             
               if(cat?.result?.length === 1 && cat?.result[0]?.customiseAvailable === true) {
-                ("dont show")
+                
               } else{
                 newData.push(cat)
               }

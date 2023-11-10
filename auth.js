@@ -13,7 +13,6 @@ const verifyToken = ( req, res, next ) => {
         return res.status( 403 ).send( 'A token is required for authentication' );
     }
     try {
-      (token)
         const decoded = jwt.verify( token, 'secretKey' );
 
         (decoded, "kjshajshasjah")
