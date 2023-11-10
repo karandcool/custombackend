@@ -100,7 +100,7 @@ class OrderController {
     async getAll( req, res, next ) {
         try {
             
-            const OrderData = await Order.find(req?.query);
+            const OrderData = await Order.find({userId : req.user.user_id});
             res.send(OrderData)
          
         } catch ( e ) {
