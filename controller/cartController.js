@@ -8,7 +8,6 @@ class CartController {
         try {
         
             const CartData = await Cart.findOne({user: req?.user?.user_id});
-            (CartData)
             const data = {
                 items: [],
                 user: "",
@@ -111,7 +110,6 @@ res.send({
         const newData = await Cart.findOneAndUpdate({
             user : req?.user?.user_id
         },  {$inc: { [`items.${req?.body?.index}.qty`]: 1}})
-        (newData)
         res.send({
             message: "items Added"
         })
