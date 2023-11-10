@@ -1,0 +1,41 @@
+/* Style for the header element */
+header {
+  background-color: #333; /* Background color for the header */
+  color: #fff; /* Text color */
+  padding: 10px; /* Add some padding around the content */
+  text-align: center; /* Center-align the text */
+}
+
+/* Style for the header's h1 element (your website title) */
+header h1 {
+  font-size: 2rem; /* Adjust the font size */
+  margin: 0; /* Remove default margin */
+  padding: 0; /* Remove default padding */
+}
+
+/* Style for the navigation menu within the header */
+header nav ul {
+  list-style-type: none; /* Remove bullet points from the list */
+  padding: 0; /* Remove default padding */
+}
+
+/* Style for the navigation menu items */
+header nav li {
+  display: inline; /* Display list items horizontally */
+  margin-right: 20px; /* Add spacing between menu items */
+}
+
+/* Style for the navigation menu links */
+header nav a {
+  text-decoration: none; /* Remove underlines from links */
+  color: #fff; /* Text color for links */
+  font-weight: bold; /* Make links bold */
+  transition: color 0.3s; /* Add a smooth color transition on hover */
+
+  /* You can add more styles for hover and active states */
+}
+
+/* Change link color on hover */
+header nav a:hover {
+  color: #ff5733; /* Change the color on hover */
+}
