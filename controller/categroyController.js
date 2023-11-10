@@ -13,9 +13,9 @@ const secretKey = "secretKey"
 class CategoryController {
     
     async create( req, res, next ) {
-        // console.log(req)
+        // (req)
         try {
-            console.log(req.body)
+            (req.body)
             req.body.picture = req.file.path
             const checkCategory = await Category.findOne({'name': req.body.name})
             if (checkCategory) {
@@ -61,9 +61,9 @@ class CategoryController {
             )
             let newData = [] 
             await categoryData.map((cat) => {
-              console.log(cat)
+              (cat)
               if(cat?.result?.length === 1 && cat?.result[0]?.customiseAvailable === true) {
-                console.log("dont show")
+                ("dont show")
               } else{
                 newData.push(cat)
               }

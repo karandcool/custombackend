@@ -6,11 +6,11 @@ class CartController {
 
     async create( req, res, next ) {
         try {
-            console.log(req.body)
-            console.log(req.user)
-            console.log(req.files)
+            (req.body)
+            (req.user)
+            (req.files)
             const CartData = await Cart.findOne({user: req?.user?.user_id});
-            console.log(CartData)
+            (CartData)
             const data = {
                 items: [],
                 user: "",
@@ -21,7 +21,7 @@ class CartController {
             })
             data.user = req.user.user_id ;
             if(CartData) {
-                console.log(CartData)
+                (CartData)
                 const updateCart = await Cart.updateOne({
                     _id : CartData._id
                 }, {
@@ -31,7 +31,7 @@ class CartController {
                 })
                 res.send(`Cart Created ${updateCart}`)
 
-                // console.log(CartData)
+                // (CartData)
             } else{
                 const insertData = await Cart.create(data);
             res.send(`Cart Created ${insertData}`)
@@ -60,7 +60,7 @@ res.send({
 
     async addCustomiseItem(req,res,next) {
         const newData = JSON.parse(req.body.itemData)
-        console.log(req.files)
+        (req.files)
         req?.files?.map((data) => {
             if(data.fieldname == 'customImage') {
                 newData['customImage']['image'] = data?.path
@@ -68,9 +68,9 @@ res.send({
                 newData['finalcustomiseImage'] = data?.path
             }
         })
-        // console.log(newData)
+        // (newData)
         const CartData = await Cart.findOne({user: req?.user?.user_id});
-            // console.log(CartData)
+            // (CartData)
             const data = {
                 items: [],
                 user: "",
@@ -81,7 +81,7 @@ res.send({
             
             data.user = req.user.user_id ;
             if(CartData) {
-                // console.log(CartData)
+                // (CartData)
                 const updateCart = await Cart.updateOne({
                     _id : CartData._id
                 }, {
@@ -96,7 +96,7 @@ res.send({
                 }
                 
 
-                // console.log(CartData)
+                // (CartData)
             } else{
                 const insertData = await Cart.create(data);
                 if(insertData) {
@@ -110,23 +110,23 @@ res.send({
     }
 
     async addItem(req,res,next) {
-        console.log(req.body)
+        (req.body)
         // const cartData = await Cart.findOne({user: req.user.user_id})
         // res.send(cartData.items)
         const newData = await Cart.findOneAndUpdate({
             user : req?.user?.user_id
         },  {$inc: { [`items.${req?.body?.index}.qty`]: 1}})
-        console.log(newData)
+        (newData)
         res.send({
             message: "items Added"
         })
     }
     async deleteItem(req,res,next) {
         const getCartData = await Cart.findOne({user: req?.user?.user_id})
-        console.log(getCartData.items.length)
+        (getCartData.items.length)
         if(getCartData.items.length === 1 ) {
             const deleteCartOfUser = await Cart.deleteOne({ _id: getCartData?._id })
-            console.log(deleteCartOfUser)
+            (deleteCartOfUser)
             res.send({
                 "message": "Items Deleted "
             })
@@ -141,8 +141,8 @@ res.send({
             user : req?.user?.user_id
         },{$pull:{"items":null}}
         )
-        console.log(newData, "newData")
-        console.log(deleteNullItem, 'deleteNullItem')
+        (newData, "newData")
+        (deleteNullItem, 'deleteNullItem')
         res.send({
             message: "items Deleted"
         })
@@ -161,7 +161,7 @@ res.send({
 
     async getCartByCategory(req,res,next) {
         try {
-            console.log(req)
+            (req)
             const CartData = await Cart.find({'categoryId': req.query.category, 'active' : 'true'});
             res.send(CartData)
          
@@ -171,7 +171,7 @@ res.send({
     }
     async getItemById(req,res,next) {
         try {
-            console.log(req)
+            (req)
             const CartData = await Cart.findById({'_id': req.query.id});
             res.send(CartData)
          
@@ -181,7 +181,7 @@ res.send({
     }
     async delete (req,res,next) {
         try {
-            console.log(req)
+            (req)
             const CartData = await Cart.deleteOne({'user':req.user.user_id});
             res.send({
                 status: 500,

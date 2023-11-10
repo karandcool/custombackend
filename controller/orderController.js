@@ -71,7 +71,7 @@ const instance = new Razorpay({
 //         });
 
 //         post_res.on('end', function(){
-//             console.log('Response: ', response);
+//             ('Response: ', response);
 //         });
 //     });
 
@@ -85,7 +85,7 @@ class OrderController {
 
     async create( req, res, next ) {
         try {
-            console.log(req.body)
+            (req.body)
             const data = await Order.create(req.body);
             if(data) {
                 res.send({
@@ -100,7 +100,7 @@ class OrderController {
     }
     async getAll( req, res, next ) {
         try {
-            console.log(req.query)
+            (req.query)
             const OrderData = await Order.find(req?.query);
             res.send(OrderData)
          
@@ -109,7 +109,7 @@ class OrderController {
         }
     }
     async razorPay ( req,res,next) {
-        console.log(req.body.amount)
+        (req.body.amount)
             return request(
              {
              method: "POST",
@@ -139,15 +139,15 @@ class OrderController {
                     orderStatus: 200,
                     message: data})
             }
-              // console.log("Status:", response.statusCode);
-              // console.log("Headers:", JSON.stringify(response.headers));
-              // console.log("Response:", body);
+              // ("Status:", response.statusCode);
+              // ("Headers:", JSON.stringify(response.headers));
+              // ("Response:", body);
               // return res.status(200).json(body);
             });
           
     }
     async razor (req, res, next) {
-                console.log("try")
+                ("try")
               const options = {
                 amount: req.body.amount * 100, // amount == Rs 10
                 currency: "INR",
@@ -157,12 +157,12 @@ class OrderController {
               };
             instance.orders.create(options, async function (err, order) {
               if (err) {
-                console.log(err)
+                (err)
                 return res.status(500).json({
                   message: "Something Went Wrong",
                 });
               }
-              console.log("asaaasas",order)
+              ("asaaasas",order)
             return res.status(200).json(order);
            });
           

@@ -7,9 +7,9 @@ class userController {
 
     async create( req, res, next ) {
         try {
-            console.log(req.body)
+            (req.body)
             let checkEmail = await User.findOne({email: req.body.email})
-            console.log(checkEmail)
+            (checkEmail)
             if(checkEmail) {
                 res.send({
                     'status': 500,
@@ -33,12 +33,12 @@ class userController {
     }
     async SignIn( req, res, next ) {
         try {
-            console.log(req.body)
+            (req.body)
             const userdata = req.body
             
             let response = await User.findOne({"email" : userdata.email})
-            console.log(response)
-            console.log(req.body)
+            (response)
+            (req.body)
             if (response && (await bcrypt.compare( req.body.password, response.password ))) {
                 // Create token
                 const token = jwt.sign(

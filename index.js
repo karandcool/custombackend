@@ -54,8 +54,8 @@ app.set('view engine', 'ejs');
 app.use(express.json())
 
 app.listen(port, function(err){
-    if (err) console.log("Error in server setup")
-    console.log("Server listening on Port", port);
+    if (err) ("Error in server setup")
+    ("Server listening on Port", port);
 });
 // const ownerRoutes = require("./routes/ownerRoute")
 const userRoutes = require("./routes/userRoute")

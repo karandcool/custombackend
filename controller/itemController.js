@@ -6,7 +6,7 @@ class ItemsController {
 
     async create( req, res, next ) {
         try {
-            console.log(req.body)
+            (req.body)
             req.body.picture = req.file.path
 
             const data = await Items.create(req.body);
@@ -30,7 +30,7 @@ class ItemsController {
 
     async getItemsByCategory(req,res,next) {
         try {
-            // console.log(req)
+            // (req)
             const ItemsData = await Items.find({'categoryId': req.query.category, 'active' : 'true', customiseAvailable: 'false',});
             res.send(ItemsData)
          
@@ -40,7 +40,7 @@ class ItemsController {
     }
     async getCustomiseItems(req,res,next) {
         try {
-            // console.log(req)
+            // (req)
             const ItemsData = await Items.find({'active' : 'true', customiseAvailable: 'true',});
             res.send(ItemsData)
          
@@ -50,7 +50,7 @@ class ItemsController {
     }
     async getItemById(req,res,next) {
         try {
-            console.log(req)
+            (req)
             const ItemsData = await Items.findById({'_id': req.query.id});
             res.send(ItemsData)
          
