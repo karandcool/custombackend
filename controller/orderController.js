@@ -86,7 +86,7 @@ class OrderController {
     async create( req, res, next ) {
         try {
           console.log(req.body)
-          req.body.address.userId = req.user.user_id 
+          req.body.orderData.userId = req.user.user_id 
              const addressData = await Address.create(req.body.address)
              req.body.orderData.deliveryAddress = addressData._id
              const data = await Order.create(req.body.orderData);
@@ -103,7 +103,7 @@ class OrderController {
     }
     async getAll( req, res, next ) {
         try {
-            
+            console.log(req.user.user_id)
             const OrderData = await Order.find({userId : req.user.user_id});
             res.send(OrderData)
          
