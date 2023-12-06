@@ -85,7 +85,11 @@ class OrderController {
 
     async create( req, res, next ) {
         try {
-            const data = await Order.create(req.body);
+          console.log(req.body)
+          req.body.address.userId = req.user.user_id 
+             const addressData = await Address.create(req.body.address)
+             req.body.orderData.deliveryAddress = addressData._id
+             const data = await Order.create(req.body.orderData);
             if(data) {
                 res.send({
                     orderStatus: 500,
@@ -107,6 +111,17 @@ class OrderController {
             next( e );
         }
     }
+    async getById( req, res, next ) {
+      try {
+          console.log(req.query)
+          const OrderData = await Order.find(req.query);
+          console.log(OrderData)
+          res.send(OrderData)
+       
+      } catch ( e ) {
+          next( e );
+      }
+  }
     async razorPay ( req,res,next) {
         
             return request(

@@ -8,6 +8,7 @@ const orderController = require("../controller/orderController");
 // const model = require("./model")
 
 router.get('/', verifyToken, OrderController.getAll)
+router.get('/getById', verifyToken, OrderController.getById)
 router.post('/', verifyToken, OrderController.create)
 router.post("/capture/:paymentId", verifyToken, OrderController.razorPay )
 router.post("/razor", OrderController.razor)

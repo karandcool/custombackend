@@ -74,11 +74,6 @@ const orderSchema = new Schema({
   totalPrice: {
     type: Number
   },
-  adddress: {
-      type: mongoose.SchemaTypes.ObjectId,
-      ref: 'address'
-    
-  },
   paymentMode: {
     type: String
   },
