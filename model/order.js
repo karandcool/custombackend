@@ -89,7 +89,7 @@ const orderSchema = new Schema({
     ref: 'feedback',
     autopopulate: true
   },
-  DeliveryAddress : {
+  deliveryAddress : {
     type: mongoose.SchemaTypes.ObjectId,
     ref: 'address',
     autopopulate: true
